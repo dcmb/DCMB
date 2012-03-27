@@ -1,4 +1,4 @@
-Winter 2010 Schedule
+Winter 2012 Schedule
 ====================
 
 <p class="floatright"><img src="images/schedulepic.jpg" width="288" height="144"></p>
