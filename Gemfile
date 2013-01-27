@@ -1,6 +1,6 @@
 source :rubygems
 
-gem 'rails'  # not actually needed, but Heroku wants it 'cause they think this is a Rails app
+gem 'rails', '~> 2.3'  # not actually needed, but Heroku wants it 'cause they think this is a Rails app
 gem 'radiant', :git => 'https://github.com/radiant/radiant.git', :submodules => true
 gem 'rdiscount','>= 1.3.5'
 gem 'authlogic', '>= 2.1.2'
