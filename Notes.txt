@@ -1,0 +1,8 @@
+- dartmouthcollegemarchingband@gmail.com
+  boomodoom
+	- should work pretty much everywhere except github, because that would be too easy
+
+heroku db:pull (overwrites database with server, be careful)
+
+localhost:3000
+(activate using "script/server" in Terminal)

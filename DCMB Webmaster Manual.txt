@@ -4,21 +4,109 @@ Welcome to your position as Webmaster! This manual will guide you as you perform
 
 Job Description
 ---------------
-The job of the webmaster, most generally, is to keep the band up-to-date on the internet. This can include keeping directorate descriptions current, signing the band up for the newest social network, or even completely redoing the band website when needed.
+The job of the webmaster, most generally, is to keep the band up-to-date on the internet. This can include keeping directorate descriptions current, signing the band up for the newest social network, adding new pages to advertise events like reunions, or even completely redoing the band website when needed.
 You also have to take care of some communication, both within the band and with alumni. Basically, whatever the Band does on the internet is your job.
 
 DCMB on the Internet
 ====================
+Login Info
+----------
+The previous webmaster has tried to standardize all the login info so that it's always username='dartmouthcollegemarchingband@gmail.com' and password='boomodoom'. This is the case everywhere except github (github.com), where you'll have to use your own account or sign up for a new one to update the website's pictures (more later).
 
 The Band Website
 ----------------
 The Band Website is currently dcmb.dartmouth.edu. We also have www.dartmouth.edu/~dcmb, which currently simply redirects to the main one. It's your job to keep it up to date, and to put up things as requested by other Directorate members.
 
-[*Space for Andrew to write about how the website runs, hosting, and whatever else is important to know about it*]
+Most of the text editing can be done on the website itself (access via dcmb.dartmouth.edu/admin/login), although several markdown files are maintained for posterity (e.g. past Directorate pages). However, to upload pictures you will need to use git to push the updated files to the website. The files are to be pushed to a website called Heroku (heroku.com), which currently hosts DCMB website (which is built with Ruby on Rails) and collects statistics on how it's running. This sounds complicated, but it's pretty straightforward once you know how to save pictures in the right directory, push them to the website, and not panic when the site is occasionally down (it's usually due to Heroku's servers and is up within an hour or two).
+
+How to Update the Website
+-------------------------
+Before you update, you'll have to set up a github account so that you can request access to update the website. Pretty simple, and the previous Webmaster should be able to walk you through it.
+To use git with a Mac, just open up Terminal, cd into the DCMB directory, and type "git" plus the command you want to use. If you're not using a Mac, you'll probably have to use another client to use git commands, like Git for Windows or TortoiseGit.
+Here's a few commands you should know to get started:
+- status
+	- If you want to know what files are about to be added or updated on your git directory, just type "git status" for a big chunk of information like this:
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   public/directorate2012.mdown
+#	new file:   public/directorate2013.mdown
+#	new file:   public/images/directorate/aki_berman.jpg
+#	new file:   public/images/directorate/joshua_perez.jpg
+#	modified:   public/images/directorate/maddie_abbott.jpg
+#	new file:   public/images/directorate/meghan_chamberlain.jpg
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   DCMB Webmaster Manual.txt
+#	modified:   directorate.mdown
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	Hello '17s!.html
+#	Notes.txt
+#	Videos/
+#	design/pages/directorate/2013directorate.mdown
+#	directorate2014.mdown
+#	github_code_stuff.txt
+#	localhost:3000
+- add directory_name/
+	- This command prepares the directory to be 'pushed' to the server on the next commit, such that all files within the directory will be updated on the server. For instance, if you wanted to upload a bunch of new photos under the 'public' directory, you would do 'git push public' from the directory containing public.
+- commit -m .
+	- After adding all the files, you'll need to commit the changes to the server before making the final push. The "-m" command just outputs a bunch of nice messages to update you on the progress of the commit, and the "." indicates that you're committing changes in the current directory. Here's what the output should look like:
+[master 97f3fa0] .
+ 7 files changed, 354 insertions(+), 0 deletions(-)
+ create mode 100644 public/directorate2012.mdown
+ create mode 100644 public/directorate2013.mdown
+ create mode 100644 public/images/directorate/aki_berman.jpg
+ create mode 100644 public/images/directorate/anthony_chicaiza.jpg
+ create mode 100644 public/images/directorate/joshua_perez.jpg
+ rewrite public/images/directorate/maddie_abbott.jpg (97%)
+ create mode 100644 public/images/directorate/meghan_chamberlain.jpg
+- push origin
+	- Before going through Heroku, you'll need to push the changes through github, which is referenced by "origin." Here's what the output should look like:
+Warning: Permanently added the RSA host key for IP address '192.30.252.129' to the list of known hosts.
+Counting objects: 17, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (12/12), 3.11 MiB | 152 KiB/s, done.
+Total 12 (delta 5), reused 0 (delta 0)
+To git@github.com:dcmb/DCMB.git
+   d36ebd6..97f3fa0  master -> master
+- push heroku
+	- This command is always the last step in updating the website via Heroku, which handles the Ruby nuts and bolts of the website. The output should look something like this:
+Fetching repository, done.
+Counting objects: 17, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (12/12), 3.11 MiB | 458 KiB/s, done.
+Total 12 (delta 5), reused 0 (delta 0)
+
+-----> Removing .DS_Store files
+-----> Ruby/Rails app detected
+-----> Configure Rails to log to stdout
+       Installing rails_log_stdout... done
+-----> Gemfile detected, running Bundler version 1.0.7
+       All dependencies are satisfied
+-----> Installing quick_sendgrid plugin from git://github.com/pedro/quick_sendgrid.git... done.
+-----> Configuring New Relic plugin... done.
+       Installing the New Relic plugin... done.
+
+-----> Compressing... done, 49.2MB
+-----> Launching... done, v48
+-----> Deploy hooks scheduled, check output in your logs
+       http://dcmb.heroku.com deployed to Heroku
+
+To git@heroku.com:dcmb.git
+   d36ebd6..97f3fa0  master -> master
 
 Google Account
 --------------
-The Band Google Account is Dartmouth.College.Marching.Band@gmail.com. Use it for whatever seems fit. Right now it is used for the calendar, which you should update whenever you hear about events, and an interest form. Make sure the publicity chairs have access to the interest form, and make any changes they request.
+The Band Google Account is Dartmouth.College.Marching.Band@gmail.com. Use it for whatever seems fit. Right now it is used for the calendar, which you should update whenever you hear about events, and an interest form (https://docs.google.com/spreadsheet/ccc?key=0AoLwfA0jYBtqdHFNbFQ3d2JNTkZFVWJBNllnRnphM3c&usp=sharing). Make sure the publicity chairs have access to the interest form, and make any changes they request.
 All emails to this account forward to the Band Account, so you don't have to worry too much about checking it.
 
 Facebook Group
@@ -27,22 +115,28 @@ The Facebook group (http://www.facebook.com/#!/group.php?gid=2200012421) is for 
 
 Facebook Fan Page
 -----------------
-The Facebook fan page (http://www.facebook.com/#!/pages/Dartmouth-College-Marching-Band/171192469559145) is a place for everyone, not just bandies, to Like the Marching Band. You can use it to post happy little DCMB status messages for everyone to see. It's also good if there are some recent pictures up there.
+The Facebook fan page (http://www.facebook.com/#!/pages/Dartmouth-College-Marching-Band/171192469559145) is a place for everyone, not just bandies, to Like the Marching Band. You can use it to post happy little DCMB status messages for everyone to see. It's also good if there are some recent pictures up there. Most of these duties are being handled by the Social Chairs, but you may need to add them as admins to the group.
 
 There's another automatically created fan page: http://www.facebook.com/#!/pages/Dartmouth-College-Marching-Band/107729792581483
 I've been trying to get control of it, but without any real luck. Maybe you'll have better luck.
-
-Historian
-=========
-As webmaster you should receive a collection of photos, old shows, music, and other historical documents, from whoever has been photographing/recording the band. There should (perhaps) be a section on the website for displaying old pictures and shows. For now, the photo- and video-hosting are being managed via Facebook and Youtube, so maybe that's the best way to go. These responsibilities are eventually going to be passed onto the official 2013 Historian (and all Historians thereafter), but for now we Webmasters have to handle most of it.
 
 Things to Do
 ============
 
 At the Beginning of Winter
 --------------------------
-Everything needs to get updated based on elections. This means putting up Directorate pictures and descriptions on the website (send out lots of blitzes harassing the Directorate) and updating admins and officers on the Facebook group. Get the term calendar from Big 4 as early as possible and make sure it goes on the calendar. Also add other events like Band Camp, potluck, and scavenger hunt. Also change the email on the Join the Band page.
+Everything needs to get updated based on elections. This means first putting up Directorate pictures and descriptions on the website (send out lots of blitzes harassing the Directorate). Later, you'll need to change the Social Chair email addresses on the Join the Band page. You might also need to update the rehearsal schedules on the Schedule page (http://dcmb.dartmouth.edu/schedule/) and the Pep Band page (http://dcmb.dartmouth.edu/pep-band/).
+On Facebook, you should update admins and officers on the group plus add other Facebook events like Band Camp, potluck, and scavenger hunt. Get the term calendar from Big 4 as early as possible and make sure it goes on the Google calendar.
+
+At the Beginning of Spring
+--------------------------
+Once the next year's class gets accepted to Dartmouth, they'll need a welcome from the Band! The Social Chairs will hopefully be keeping track of the new members spreadsheet (http://dcmb.dartmouth.edu/join/), but to help them out you should make a "Welcome (class number)" page, which should already be available in draft form on the website. Work with the Social Chairs to make a page with pictures and text enticing freshmen to join the DCMB, then have them include the link in their blitz to freshmen.
 
 At the Beginning of Fall
 ------------------------
-Once the band has new freshmen, make sure they all get Facebook invites. Once there's a secure section on the website, make sure everyone's properly signed up for it. Make sure that the main photos on the website are representative of the band as it is right now.
+Once the band has new freshmen, make sure they all get Facebook invites. If there's a secure section on the website, make sure everyone's properly signed up for it. 
+Seem trivial but it's necessary: make sure that the main photos on the website are representative of the band as it is right now. We have a lot of old photos up now that should be cycled out to show off our younger members.
+
+At Any Time
+-----------
+Collaborate with other chairs to see if they have any web-related wants or needs! This is especially relevant for the Historian, who will likely need some help making and/or maintaining a wiki for all the band's old stuff.

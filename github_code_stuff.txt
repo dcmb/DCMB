@@ -1,0 +1,99 @@
+ajglu-3000:DCMB istewart$ git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   .gitignore
+#	modified:   DCMB Webmaster Manual.txt
+#	modified:   design/pages/pep-band/body.markdown
+#	modified:   design/pages/schedule/body.markdown
+#	modified:   directorate.mdown
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	Notes.txt
+#	justincasederp.txt
+#	public/images/directorate/autumn_brunelle.jpg
+#	public/images/directorate/ben_ferguson.jpg
+#	public/images/directorate/ellen_daily.jpg
+#	public/images/directorate/maddie_abbott.jpeg
+#	public/images/directorate/morganmatthews.jpg
+#	public/images/directorate/nathanael_friday.jpeg
+no changes added to commit (use "git add" and/or "git commit -a")
+ajglu-3000:DCMB istewart$ git add public
+ajglu-3000:DCMB istewart$ git commit .
+
+(note: "git commit -m ." seems to work well)
+
+[master 6c92043] Updated directorate images.
+ Committer: Ian Stewart <istewart@ajglu-3000.wireless.dartmouth.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 11 files changed, 60 insertions(+), 44 deletions(-)
+ create mode 100644 public/images/directorate/autumn_brunelle.jpg
+ create mode 100644 public/images/directorate/ben_ferguson.jpg
+ create mode 100644 public/images/directorate/ellen_daily.jpg
+ create mode 100644 public/images/directorate/maddie_abbott.jpeg
+ create mode 100644 public/images/directorate/morganmatthews.jpg
+ create mode 100644 public/images/directorate/nathanael_friday.jpeg
+ajglu-3000:DCMB istewart$ git config --global user.name "Ian Stewart"
+ajglu-3000:DCMB istewart$ git config --global user.email alethioguy@gmail.com
+ajglu-3000:DCMB istewart$ git commit --amend --reset-author
+[master f788eba] Updated directorate images.
+ 11 files changed, 60 insertions(+), 44 deletions(-)
+ create mode 100644 public/images/directorate/autumn_brunelle.jpg
+ create mode 100644 public/images/directorate/ben_ferguson.jpg
+ create mode 100644 public/images/directorate/ellen_daily.jpg
+ create mode 100644 public/images/directorate/maddie_abbott.jpeg
+ create mode 100644 public/images/directorate/morganmatthews.jpg
+ create mode 100644 public/images/directorate/nathanael_friday.jpeg
+ajglu-3000:DCMB istewart$ git remote
+heroku
+origin
+ajglu-3000:DCMB istewart$ git push origin
+Counting objects: 32, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (19/19), done.
+Writing objects: 100% (20/20), 937.58 KiB, done.
+Total 20 (delta 8), reused 0 (delta 0)
+To git@github.com:dcmb/DCMB.git
+   0676b76..f788eba  master -> master
+ajglu-3000:DCMB istewart$ git push heroku
+The authenticity of host 'heroku.com (50.19.85.156)' can't be established.
+RSA key fingerprint is 8b:48:5e:67:0e:c9:16:47:32:f2:87:0c:1f:c8:60:ad.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'heroku.com,50.19.85.156' (RSA) to the list of known hosts.
+Counting objects: 32, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (19/19), done.
+Writing objects: 100% (20/20), 937.58 KiB | 1.66 MiB/s, done.
+Total 20 (delta 8), reused 0 (delta 0)
+
+-----> Heroku receiving push
+-----> Removing .DS_Store files
+-----> Ruby/Rails app detected
+-----> Configure Rails to log to stdout
+       Installing rails_log_stdout... done
+-----> Gemfile detected, running Bundler version 1.0.7
+       All dependencies are satisfied
+-----> Installing quick_sendgrid plugin from git://github.com/pedro/quick_sendgrid.git... done.
+-----> Configuring New Relic plugin... done.
+       Installing the New Relic plugin... done.
+-----> Compiled slug size is 34.0MB
+-----> Launching... done, v37
+-----> Deploy hooks scheduled, check output in your logs
+       http://dcmb.heroku.com deployed to Heroku
+
+To git@heroku.com:dcmb.git
+   0676b76..f788eba  master -> master
